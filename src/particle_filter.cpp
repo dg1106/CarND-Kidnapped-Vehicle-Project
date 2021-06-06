@@ -21,7 +21,7 @@
 using std::string;
 using std::vector;
 
-#define EPS (0.00001)
+#define EPS (0.0001)
 
 double multiv_prob(double sig_x, double sig_y, double x_obs, double y_obs,
                    double mu_x, double mu_y);
@@ -101,7 +101,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
    
     double theta = particles[i].theta;
     
-    if (fabs(yaw_rate < EPS)) {
+    if (fabs(yaw_rate) < EPS) {
       particles[i].x += velocity * delta_t * cos(theta);
       particles[i].y += velocity * delta_t * sin(theta); 
     }
